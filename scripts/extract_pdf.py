@@ -57,8 +57,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
             Examples:
-                python extract_pdf.py input.pdf output.pdf --start 1 --end 5
-                python extract_pdf.py document.pdf extracted.pdf -s 10 -e 20  
+                python %(prog)s input.pdf output.pdf --start 1 --end 5
+                python %(prog)s document.pdf extracted.pdf -s 10 -e 20  
         '''
     )
 
