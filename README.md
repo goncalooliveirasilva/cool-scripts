@@ -1,1 +1,34 @@
-# cool-scripts
+# Cool Scripts
+
+Cool Scripts is a growing collection of small, handy automation tools written in Python, for speeding up repetitive or boring tasks.  
+
+## What's Inside
+| Script | Description |
+| ------ | ----------- |
+| [extract_pdf.py](./scripts/extract_pdf.py) | Extracts specific pages from a PDF and saves them as a new file. |
+| [extract_text.py](./scripts/extract_text.py) | Extracts all text content from a PDF file with optional metadata. |
+
+## 🧩 Installation
+
+1. Clone this repo
+```bash
+git clone git@github.com:goncalooliveirasilva/cool-scripts.git
+cd cool-scripts/
+```
+
+2. Install dependencies
+```bash
+uv sync
+```
+
+3. Run a script
+```bash
+uv run scripts/<script-name>
+```
+
+## 🤝 Contributing
+Got a cool script idea? Contributions are welcome!
+Fork the repo, create a branch, and open a pull request.
+
+## License
+MIT License — free to use, modify, and share.
