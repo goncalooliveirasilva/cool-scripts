@@ -8,7 +8,7 @@ import sys
 from PyPDF2 import PdfReader, PdfWriter
 
 
-def extract_pages(input_pdf, output_pdf, start_page, end_page):
+def extract_pages(input_pdf: str, output_pdf: str, start_page: str, end_page: str):
     '''
     Extract pages from a PDF file.
     Args:
