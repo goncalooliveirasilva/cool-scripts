@@ -56,10 +56,10 @@ def main():
         description='Extract specific pages from a PDF file',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
-            Examples:
-                python %(prog)s input.pdf output.pdf --start 1 --end 5
-                python %(prog)s document.pdf extracted.pdf -s 10 -e 20  
-        '''
+Examples:
+    python %(prog)s input.pdf output.pdf --start 1 --end 5
+    python %(prog)s document.pdf extracted.pdf -s 10 -e 20  
+'''
     )
 
     parser.add_argument('input', help='Input PDF file path')
