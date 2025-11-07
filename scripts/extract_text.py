@@ -18,7 +18,6 @@ def extract_text(pdf_path):
     for page_num, page in enumerate(reader.pages, 1):
         text.append(f'--- Page {page_num} ---\n')
         text.append(page.extract_text())
-        text.append('\n\n')
 
     return ''.join(text)
 
@@ -46,12 +45,11 @@ def extract_detailed(pdf_path):
     info.append(f'\nTotal Pages: {len(reader.pages)}\n')
     info.append('\n' + '=' * 50 + '\n')
     info.append('CONTENT\n')
-    info.append('=' * 50 + '\n\n')
+    info.append('=' * 50 + '\n')
 
     for page_num, page in enumerate(reader.pages, 1):
         info.append(f'--- Page {page_num} ---\n')
         info.append(page.extract_text())
-        info.append('\n\n')
 
     return ''.join(info)
 
