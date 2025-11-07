@@ -31,7 +31,7 @@ def main():
 Examples:
   %(prog)s "<prompt>"
   %(prog)s "<prompt>" --model mistral:latest
-  %(prog)s "<prompt>" --keep
+  %(prog)s "<prompt>" --output summary.md
 '''
     )
 
@@ -42,12 +42,15 @@ Examples:
         help='Model to use (default: llama3:latest)'
     )
     parser.add_argument(
-        '--keep',
-        action='store_true',
-        help='Keep the generated "res.md" file instead of deleting it after display.'
+        '-o', '--output',
+        metavar='FILE',
+        help='Optional output file to save the response (e.g. result.md). '
+             'If not specified, a temporary "response.md" file is used and deleted after display'
     )
 
     args = parser.parse_args()
+
+    output_path = args.output if args.output else 'response.md'
 
     stop_event = threading.Event()
     spinner = threading.Thread(target=loader, args=(stop_event,))
@@ -58,26 +61,25 @@ Examples:
     except Exception as e:
         stop_event.set()
         spinner.join()
-        print(f"\nError: {e}")
+        print(f'\nError: {e}')
         sys.exit(1)
 
     stop_event.set()
     spinner.join()
 
-    output_path = 'res.md'
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(response_text)
 
-    sys.stdout.write("\n")
+    sys.stdout.write('\n')
 
-    # Display with batcat (fallback to cat if batcat is missing)
+    # Display with batcat (fallback to cat if not installed)
     try:
         subprocess.run(['batcat', '-l', 'markdown', '--paging=never', output_path], check=True)
     except FileNotFoundError:
         subprocess.run(['cat', output_path])
 
-    # Delete or keep file based on the flag
-    if not args.keep:
+    # Delete the temp file if user didn't request output
+    if not args.output:
         os.remove(output_path)
     else:
         print(f'\nOutput saved as {output_path}')
