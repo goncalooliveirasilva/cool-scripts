@@ -2,7 +2,7 @@
 
 Cool Scripts is a growing collection of small, handy automation tools written in **Python**, for speeding up repetitive or boring tasks.
 
-## 📂 What's Inside
+## What's Inside
 
 | Script                                       | Description                                                                                                                      |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -10,7 +10,7 @@ Cool Scripts is a growing collection of small, handy automation tools written in
 | [extract_text.py](./scripts/extract_text.py) | Extracts all text content from a PDF file with optional metadata.                                                                |
 | [llm.py](./scripts/llm.py)                   | Interact with local LLMs via [Ollama](https://ollama.com/): send a prompt, view Markdown output, and optionally keep the result. |
 
-## 🧩 Installation
+## Installation
 
 1. Clone this repo
 
@@ -31,12 +31,6 @@ uv sync
 uv run scripts/<script-name>.py [options]
 ```
 
-## 🤝 Contributing
-
-Got a cool idea? Found a bug?  
-**Contributions are welcome!**  
-Fork the repo, create a branch, and open a pull request.
-
-## 📜 License
+## License
 
 This project is licensed under the MIT License — feel free to use, modify, and share.
